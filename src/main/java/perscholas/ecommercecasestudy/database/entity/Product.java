@@ -17,13 +17,13 @@ public class Product {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "product_name")
+    @Column(name = "product_name", columnDefinition = "TINYTEXT")
     private String productName;
 
-    @Column(name = "product_description")
+    @Column(name = "product_description", columnDefinition = "TEXT")
     private String productDescription;
 
-    @Column(name="specs")
+    @Column(name="specs", columnDefinition = "TEXT")
     private String productSpecs;
 
     @Column(name = "color")
@@ -35,15 +35,15 @@ public class Product {
     @Column(name = "avail_qty")
     private Integer availableQty;
 
-    @Column(name="main_img_url")
+    @Column(name="main_img_url", columnDefinition = "TINYTEXT")
     private String mainImgUrl;
 
-    @Column(name ="secondary_img_url")
+    @Column(name ="secondary_img_url", columnDefinition = "TEXT")
     private String secondaryImgUrls;
 
-    @Column(name = "price")
+    @Column(name = "price", columnDefinition = "DECIMAL")
     private BigDecimal price;
 
-    @Column(name="weight")
+    @Column(name="weight", columnDefinition = "DECIMAL")
     private Double weight;
 }

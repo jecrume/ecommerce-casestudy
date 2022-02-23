@@ -28,7 +28,7 @@
 </head>
 <body>
 <div class="nav">
-    <img src="pub/img/GoGoGadgets-dark-logo.png"  class="brand-logo" alt="">
+    <img src="https://gogogadget-media.s3.amazonaws.com/img/images/GoGoGadgets-dark-logo.png"  class="brand-logo" alt="pub/img/GoGoGadgets-dark-logo.png">
 
     <div class="nav-items">
 
@@ -36,8 +36,8 @@
             <input type="text" class="search-box" placeholder="Search brands, products, etc.">
             <button class="search-btn">Search</button>
         </div>
-        <a href="#" class="user"><img src="pub/img/user.png" alt=""></a>
-        <a href="#" class="cart"><img src="pub/img/cart.png" alt=""></a>
+        <a href="#" class="user"><img src="https://gogogadget-media.s3.amazonaws.com/img/images/user.png" alt="pub/img/user.png"></a>
+        <a href="#" class="cart"><img src="https://gogogadget-media.s3.amazonaws.com/img/images/cart.png" alt="pub/img/cart.png"></a>
 
     </div>
 </div>
@@ -45,7 +45,7 @@
     <li class="link-item"><a href="#" class="link">Home</a></li>
     <li class="link-item"><a href="#" class="link">Gaming</a></li>
     <li class="link-item"><a href="#" class="link">Audio & Visual</a></li>
-    <li class="link-item"><a href="#" class="link">3d Printing</a></li>
     <li class="link-item"><a href="#" class="link">Toys</a></li>
+    <li class="link-item"><a href="#" class="link">Interesting</a></li>
 
 </ul>
