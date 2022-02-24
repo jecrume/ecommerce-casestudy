@@ -34,6 +34,8 @@ public interface ProductDAO extends JpaRepository<Product,Long> {
     @Query(value = "SELECT * FROM products WHERE products.category='interesting' ORDER BY RAND() LIMIT 10", nativeQuery = true)
     public List<Product> findProductByCategory();
 
+    @Query(value = "SELECT * FROM products WHERE products.category = :category", nativeQuery = true)
+    public List<Product> findProductByExactCategory(String category);
     //DELETE
     public void delete(Product delete);
 

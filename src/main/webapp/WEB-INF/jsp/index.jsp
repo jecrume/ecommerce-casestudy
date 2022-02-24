@@ -17,10 +17,14 @@
     <button class="nxt-btn"><img src="https://gogogadget-media.s3.amazonaws.com/img/images/arrow.png" alt=""></button>
     <div class="product-container">
         <c:forEach items="${productsList}" var="product">
+
             <div class="product-card">
                 <div class="product-image">
-                    <a href="#">
+                    <a onclick="location.href='/product/${product.id}'">
                         <img src="${product.mainImgUrl}" class="product-thumb" alt="">
+
+
+
                     </a>
                     <button class="card-btn">Add To Wish List</button>
                 </div>
@@ -42,7 +46,9 @@
         <c:forEach items="${specialProdList}" var="product">
         <div class="product-card">
             <div class="product-image">
+               <a onclick="location.href='/product/${product.id}'">
                 <img src="${product.mainImgUrl}" class="product-thumb" alt="">
+               </a>
                 <button class="card-btn">Add To Wish List</button>
             </div>
             <div class="product-info">

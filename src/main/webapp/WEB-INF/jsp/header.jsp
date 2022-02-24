@@ -28,8 +28,9 @@
 </head>
 <body>
 <div class="nav">
+    <a onclick = "location.href= '/'" >
     <img src="https://gogogadget-media.s3.amazonaws.com/img/images/GoGoGadgets-dark-logo.png"  class="brand-logo" alt="pub/img/GoGoGadgets-dark-logo.png">
-
+    </a>
     <div class="nav-items">
 
         <div class="search">
@@ -42,10 +43,10 @@
     </div>
 </div>
 <ul class="links-container">
-    <li class="link-item"><a href="#" class="link">Home</a></li>
-    <li class="link-item"><a href="#" class="link">Gaming</a></li>
-    <li class="link-item"><a href="#" class="link">Audio & Visual</a></li>
-    <li class="link-item"><a href="#" class="link">Toys</a></li>
-    <li class="link-item"><a href="#" class="link">Interesting</a></li>
+    <li class="link-item"><a onclick="location.href='/category/home'" class="link">Home</a></li>
+    <li class="link-item"><a onclick="location.href='/category/av'" class="link">Audio & Visual</a></li>
+    <li class="link-item"><a onclick="location.href='/category/gaming'" class="link">Gaming</a></li>
+    <li class="link-item"><a onclick="location.href='/category/toys'" class="link">Toys</a></li>
+    <li class="link-item"><a onclick="location.href='/category/interesting'" class="link">Interesting</a></li>
 
 </ul>
