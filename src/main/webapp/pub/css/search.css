@@ -1,3 +1,6 @@
+@import "home.css";
+
+
 .search-results{
     width:100%;
     padding: 60px 0;
@@ -5,7 +8,7 @@
 
 .heading{
     font-size: 20px;
-    font-weight: 400;
+    font-weight: bold;
     margin-bottom: 40px;
     padding:0 10vw;
 }

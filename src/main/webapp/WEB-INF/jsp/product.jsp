@@ -3,6 +3,7 @@
 
 <jsp:include page="header.jsp" />
 <link href="/pub/css/product.css" rel="stylesheet" />
+<link rel="stylesheet" href="/pub/css/home.css">
 
 <section class="product-details">
     <div class="image-slider" style="background-image: url('${currentProduct.mainImgUrl}');">
@@ -21,7 +22,8 @@
         <span class="product-price">$${currentProduct.price.setScale(2,BigDecimal.ROUND_HALF_UP)}</span>
 <%--        <span class="product-actual-price"></span>--%>
 <%--        <span class="product-discount">(50% Off)</span>--%>
-
+        <h2 class="heading">Description</h2>
+        <p class="des">${currentProduct.productDescription}
         <div id="buttons">
             <button class="btn-cart-btn">Add To Cart</button>
             <button class="btn-wishlist-btn">Add To Wishlist</button>
@@ -31,8 +33,7 @@
 </section>
 
 <section class="detailed-des">
-    <h2 class="heading">Description</h2>
-    <p class="des">${currentProduct.productDescription}
+
     </p>
     <h2 class="heading">Features</h2>
     <p class="des">${currentProduct.productSpecs}</p>

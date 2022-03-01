@@ -4,6 +4,7 @@ import org.hibernate.query.NativeQuery;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import perscholas.ecommercecasestudy.database.entity.Product;
 
 import javax.persistence.EntityManager;
@@ -22,11 +23,11 @@ public interface ProductDAO extends JpaRepository<Product,Long> {
     @Query(value = "SELECT * FROM products where id = :id",nativeQuery = true)
     public Product findProductById(Integer id);
 
-    @Query(value="SELECT * FROM products where product_description LIKE '%:desc%'",nativeQuery = true)
+    @Query(value="SELECT * FROM products where products.product_description LIKE %:desc%",nativeQuery = true)
     public List<Product> findProductByDescription(String desc);
 
-    @Query(value = "SELECT * FROM products WHERE product_description OR specs OR product_name LIKE '%:keyword%'",nativeQuery = true)
-    public List<Product> findProductByDescriptionAndSpecAndName(String keyword);
+    @Query(value = "SELECT * FROM products WHERE lower(products.product_description) LIKE %:keyword% OR lower(products.specs) LIKE %:keyword% OR lower(products.product_name) LIKE %:keyword%",nativeQuery = true)
+    public List<Product> findProductByDescriptionAndSpecAndName(@Param("keyword")String keyword);
 
     @Query(value = "SELECT * FROM products ORDER BY RAND() LIMIT 15",nativeQuery = true)
     public List<Product> findProductByRandom();

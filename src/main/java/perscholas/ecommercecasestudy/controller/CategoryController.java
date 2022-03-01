@@ -60,7 +60,7 @@ public class CategoryController {
         ModelAndView response = new ModelAndView();
         response.setViewName("/category");
         List<Product> toys = productDao.findProductByExactCategory("toys");
-        response.addObject("toysList",toys);
+        response.addObject("productList",toys);
         response.addObject("category","Toys");
 
         return response;
@@ -71,7 +71,7 @@ public class CategoryController {
         ModelAndView response = new ModelAndView();
         response.setViewName("/category");
         List<Product> interesting = productDao.findProductByExactCategory("interesting");
-        response.addObject("interestingList",interesting);
+        response.addObject("productList",interesting);
         response.addObject("category","Interesting");
 
         return response;

@@ -9,7 +9,7 @@
             integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
             crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="pub/css/home.css">
+    <link rel="stylesheet" href="pub/css/header.css">
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -27,6 +27,7 @@
 
 </head>
 <body>
+<div class="nav-bar">
 <div class="nav">
     <a onclick = "location.href= '/'" >
     <img src="https://gogogadget-media.s3.amazonaws.com/img/images/GoGoGadgets-dark-logo.png"  class="brand-logo" alt="pub/img/GoGoGadgets-dark-logo.png">
@@ -34,14 +35,18 @@
     <div class="nav-items">
 
         <div class="search">
-            <input type="text" class="search-box" placeholder="Search brands, products, etc.">
-            <button class="search-btn">Search</button>
+            <form action="/search/results" method="get">
+            <input type="text"  name= "keyword" class="search-box" placeholder="Search brands, products, etc.">
+            <button  class="search-btn">Search</button>
+            </form>
         </div>
+
         <a href="#" class="user"><img src="https://gogogadget-media.s3.amazonaws.com/img/images/user.png" alt="pub/img/user.png"></a>
-        <a href="#" class="cart"><img src="https://gogogadget-media.s3.amazonaws.com/img/images/cart.png" alt="pub/img/cart.png"></a>
+        <a href="/cart/show" class="cart"><img src="https://gogogadget-media.s3.amazonaws.com/img/images/cart.png" alt="pub/img/cart.png"></a>
 
     </div>
 </div>
+
 <ul class="links-container">
     <li class="link-item"><a onclick="location.href='/category/home'" class="link">Home</a></li>
     <li class="link-item"><a onclick="location.href='/category/av'" class="link">Audio & Visual</a></li>
@@ -50,3 +55,4 @@
     <li class="link-item"><a onclick="location.href='/category/interesting'" class="link">Interesting</a></li>
 
 </ul>
+</div>

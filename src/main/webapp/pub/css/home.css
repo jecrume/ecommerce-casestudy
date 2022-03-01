@@ -58,6 +58,9 @@
     width: 350px;
     height:450px;
     margin-right: 40px;
+    margin-bottom: 50px;
+    align-content: flex-start;
+
 }
 
 .product-image{
@@ -170,7 +173,7 @@
 .category-container{
     width:100%;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
 }
 
@@ -195,6 +198,10 @@
     color: #fff;
     font-size: 50px;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.heading{
+    font-weight:bold;
 }
 
 

@@ -39,6 +39,9 @@ public class User {
     @Column(name="ship_addr")
     private String address;
 
+    @Transient
+    private Cart cart;
+
     @Override
     public String toString(){
         return ReflectionToStringBuilder.toString(this, ToStringStyle.MULTI_LINE_STYLE);
