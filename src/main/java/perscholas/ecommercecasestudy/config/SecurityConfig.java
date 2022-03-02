@@ -45,21 +45,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //				.frameOptions().disable()
 //				.and()
                 .authorizeRequests()
-                // this line allows access to these URLs whithout the user logged in
+                // this line allows access to these URLs without the user logged in
                 // they are considered public URLs
-                .antMatchers("/","/pub/**", "/error/**", "/login/**","/search/**","/index/**","/category/**").permitAll()
+                .antMatchers("/","/pub/**", "/error/**", "/login/**","/search/**","/index/**","/category/**","/product/**", "/register/**").permitAll()
                 // these are URLs that the user must be authenticated for
-                .antMatchers("/admin/**", "/user/**").authenticated()
+                .antMatchers("/**").authenticated()
                 .and()
                 .formLogin()
                 // this is the URL for the login page - displays your JSP page for login
                 // this needs to be implemented in a controller.
-                .loginPage("/login")
+                .loginPage("/login/login")
                 // this is the URL where the login page submits to be processed by spring security
                 // this is implemented by spring security and does not need a controller
                 .loginProcessingUrl("/login/loginSecurityPost")
                 //.successHandler(successHandler)
                 //.failureHandler(failureHandler)
+                .defaultSuccessUrl("/user/userprofile",true)
                 .and()
                 .logout()
                 // invalidating the session removes the JSESSION_ID cookie from the browser

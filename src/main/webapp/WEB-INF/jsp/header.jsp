@@ -9,7 +9,7 @@
             integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
             crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="pub/css/header.css">
+    <link rel="stylesheet" href="/pub/css/header.css">
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -23,10 +23,10 @@ public interface UserDAO extends JpaRepository<User,Long> {
     public List<User> findByFirstNameAndLastName(@Param("firstName") String firstName, @Param("lastName") String lastName);
 
     public List<User> findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(@Param("firstName") String firstName, @Param("lastName") String lastName);
-    @Query("select u from User u where u.userName = :username")
-    public User findByUsername(@Param("username") String uname);
+    @Query(value = "select * from users where users.username = :username", nativeQuery = true)
+    public User findByUsername(@Param("username") String username);
 
-    @Query(value="SELECT u.* FROM user u WHERE u.first_name like '%:firstName%'", nativeQuery = true)
+    @Query(value="SELECT u.* FROM users u WHERE u.first_name like '%:firstName%'", nativeQuery = true)
     public List<User> findByFirstNameLike(String firstName);
 
     @Query("select ur from UserRole ur where ur.user.id = :userId")

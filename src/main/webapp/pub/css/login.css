@@ -18,6 +18,11 @@ body{
     font-family: 'roboto', sans-serif;
 }
 
+form{
+    display:flex;
+    flex-direction:column;
+}
+
 .loader{
     position: absolute;
     top:50%;

@@ -30,7 +30,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userDao.findByEmail(username);
+        User user = userDao.findByUsername(username);
 
         if (user == null) {
             throw new UsernameNotFoundException("Username/Email '" + username + "' not found in database");
@@ -79,5 +79,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         return authorities;
     }
+
+
 
 }

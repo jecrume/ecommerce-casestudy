@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" href="/pub/css/footer.css">
 <footer>
 <div class="footer-content">
     <img src="https://gogogadget-media.s3.amazonaws.com/img/images/GoGoGadgets-light-logo.png" class="logo"alt="/pub/img/GoGoGadgets-light-logo.png">
