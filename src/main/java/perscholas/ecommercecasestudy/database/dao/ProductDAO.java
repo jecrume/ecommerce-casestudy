@@ -1,16 +1,12 @@
 package perscholas.ecommercecasestudy.database.dao;
 
-import org.hibernate.query.NativeQuery;
-import org.springframework.context.annotation.Bean;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import perscholas.ecommercecasestudy.database.entity.Product;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.NamedNativeQuery;
-import javax.persistence.Persistence;
+
 import java.util.List;
 
 public interface ProductDAO extends JpaRepository<Product,Long> {

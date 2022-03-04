@@ -24,8 +24,22 @@
 <%--        <span class="product-discount">(50% Off)</span>--%>
         <h2 class="heading">Description</h2>
         <p class="des">${currentProduct.productDescription}
+
+
         <div id="buttons">
-            <button class="btn-cart-btn">Add To Cart</button>
+
+            <form action="/addToCart" method="post">
+
+                <div id="pass-quantity" class="pass-quantity col-lg-3 col-md-4 col-sm-3">
+                    <label for="pass-quantity" class="pass-quantity">Quantity</label>
+                    <input name= "quantity" class="form-control" type="number" value="1" min="1" max="${currentProduct.availableQty}">
+                </div>
+
+
+
+                <input type="hidden" name="id" value=${currentProduct.id} />
+                <button type="submit" class="btn-cart-btn mt-2">Add To Cart</button>
+            </form>
             <button class="btn-wishlist-btn">Add To Wishlist</button>
         </div>
     </div>
