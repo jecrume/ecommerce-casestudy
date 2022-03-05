@@ -14,6 +14,7 @@ import perscholas.ecommercecasestudy.database.dao.ProductDAO;
 import perscholas.ecommercecasestudy.database.entity.Cart;
 import perscholas.ecommercecasestudy.database.entity.CartItem;
 import perscholas.ecommercecasestudy.database.entity.Product;
+import perscholas.ecommercecasestudy.service.CartService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -34,6 +35,9 @@ public class ProductController {
     @Autowired
     private CartDAO cartDao;
 
+    @Autowired
+    private CartService cartService;
+
     @GetMapping(value = {"/{productId}"})
     public ModelAndView product(@PathVariable(value = "productId") String id, HttpServletRequest request){
         ModelAndView response = new ModelAndView();
@@ -41,7 +45,7 @@ public class ProductController {
         Integer prodId = Integer.parseInt(id);
         Product product = producerDao.findProductById(prodId);
         List<Product> productsList = producerDao.findProductByRandom();
-        LOG.debug("The product id is: "+product.getId() + "/n The product category is: "+product.getCategory());
+        LOG.debug("The product id is: "+product.getId() + "\n The product category is: "+product.getCategory());
         List<String> imgUrlList = Arrays.asList(StringUtils.splitPreserveAllTokens(product.getSecondaryImgUrls()));
         response.addObject("productsList",productsList);
         response.addObject("currentProduct",product);
@@ -55,8 +59,8 @@ public class ProductController {
         //check for the session TODO change this to use Spring session to track session
         String sessionToken = RequestContextHolder.currentRequestAttributes().getSessionId();
         //if session doesn't exist create it
-        if(sessionToken == null){
-            session.setAttribute("sessionToken", UUID.randomUUID().toString());
+        if(!cartDao.existsBySessionToken(sessionToken)){
+
             Cart shoppingCart = new Cart();
             CartItem cartItem = new CartItem();
             cartItem.setQuantity(quantity);
@@ -65,6 +69,10 @@ public class ProductController {
             shoppingCart.getCartItems().add(cartItem);
             shoppingCart.setSessionToken(sessionToken);
             shoppingCart.setDate(LocalDateTime.now());
+            session.setAttribute("shoppingCart",shoppingCart);
+            cartService.calculateSubTotal(shoppingCart);
+            cartService.calculateTaxes(shoppingCart);
+            cartService.calculateTotalPrice(shoppingCart);
             cartDao.save(shoppingCart);
         } else {
 
@@ -94,12 +102,15 @@ public class ProductController {
                 cartItem.setQuantity(quantity);
                 cartItem.setProduct(p);
                 shoppingCart.getCartItems().add(cartItem);
+                cartService.calculateSubTotal(shoppingCart);
+                cartService.calculateTaxes(shoppingCart);
+                cartService.calculateTotalPrice(shoppingCart);
                 cartDao.save(shoppingCart);
             }
 
         }
 
-        response.setViewName("redirect:/cart");
+        response.setViewName("redirect:/cart/show");
 
 
         return response;

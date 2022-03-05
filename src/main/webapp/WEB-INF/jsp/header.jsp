@@ -45,7 +45,7 @@
         </div>
         <c:if test="${not empty pageContext.request.userPrincipal}">
             <security:authorize access="isAuthenticated()">
-                Welcome, <security:authentication property="firstName" />
+                Welcome, <security:authentication property="name" />
              </security:authorize>
         </c:if>
         <a href="#" class="user"><img src="https://gogogadget-media.s3.amazonaws.com/img/images/user.png" alt="pub/img/user.png"></a>

@@ -46,4 +46,6 @@ public class Cart {
 
     @Column(name="session_token")
     private String sessionToken;
+
+
 }

@@ -28,7 +28,7 @@
 
         <div id="buttons">
 
-            <form action="/addToCart" method="post">
+            <form action="/product/addToCart" method="post">
 
                 <div id="pass-quantity" class="pass-quantity col-lg-3 col-md-4 col-sm-3">
                     <label for="pass-quantity" class="pass-quantity">Quantity</label>

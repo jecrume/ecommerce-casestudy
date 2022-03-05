@@ -7,7 +7,10 @@ import perscholas.ecommercecasestudy.database.entity.Cart;
 
 public interface CartDAO extends JpaRepository <Cart,Integer> {
 
-   // Cart findCartById(Integer id);
+    Cart findCartById(Integer id);
 
     Cart findBySessionToken(String sessionToken);
+
+    boolean existsBySessionToken(String sessionToken);
+
 }
