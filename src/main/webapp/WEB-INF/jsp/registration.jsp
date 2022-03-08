@@ -31,7 +31,7 @@
         <label for="notifications">Receive upcoming Offers and Discounts</label>
         <button class="btn-submit">Create Account</button>
     </form>
-    <a href="/login" class="link">Already have an Account? Log in here.</a>
+    <a href=/login/login class="link">Already have an Account? Log in here.</a>
 </div>
 
 

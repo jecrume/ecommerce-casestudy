@@ -25,7 +25,7 @@ public class AdminController {
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public ModelAndView index(HttpServletRequest request, HttpSession session) throws Exception {
         ModelAndView response = new ModelAndView();
-        response.setViewName("adminprofile");
+        response.setViewName("/admin/admin/adminprofile");
 
         log.debug("debug message");
         return response;

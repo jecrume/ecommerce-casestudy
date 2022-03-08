@@ -43,7 +43,18 @@
     cursor: pointer;
 }
 
+.product-images iframe{
+    width: 100%;
+    height: 80px;
+    object-fit:cover;
+    cursor: pointer;
+}
+
 .products-images img.active{
+    opacity:0.5;
+}
+
+.products-images iframe.active{
     opacity:0.5;
 }
 
@@ -126,5 +137,14 @@ top: 100px;
 .product{
     top:200px;
 
+}
+
+#buttons{
+    display:grid;
+
+}
+
+#addToCart{
+    display: grid;
 }
 

@@ -31,7 +31,7 @@ public class UserController {
     @RequestMapping(value = "/user/profile", method = RequestMethod.GET)
     public ModelAndView index() throws Exception {
         ModelAndView response = new ModelAndView();
-        response.setViewName("profilepage");
+        response.setViewName("/user/userprofile");
 
         // do your queries to get whatever you want to display on this page
         // there is a way to ask the security context for the logged in user.

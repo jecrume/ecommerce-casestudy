@@ -6,6 +6,7 @@
         <class>perscholas.ecommercecasestudy.database.entity.Order</class>
         <class>perscholas.ecommercecasestudy.database.entity.Product</class>
         <class>perscholas.ecommercecasestudy.database.entity.OrderProduct</class>
+        <class>perscholas.ecommercecasestudy.database.entity.CartItem</class>
 
         <properties>
             <!-- Configuring The Database Connection Details -->

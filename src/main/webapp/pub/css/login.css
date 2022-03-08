@@ -1,27 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 @import 'header.css';
 @import 'footer.css';
-*{
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
-}
+
 
 body{
     width:100%;
     min-height: 100vh;
-
-    justify-content:center ;
-    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     background: #f5f5f5;
     font-family: 'roboto', sans-serif;
 }
 
-form{
-    display:flex;
-    flex-direction:column;
-}
+
 
 .loader{
     position: absolute;
@@ -39,19 +32,31 @@ form{
     align-items: center;
     padding-bottom: 50px;
 }
+h2{
+    width:500px;
+    align-content: center;
+    align-items: center;
+    text-align: center;
 
+}
 .logo{
-    display:block;
-    margin: 0 auto 50px;
+
+
     height: 200px;
     
 }
 
-input[type="text"],
+.login-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
 input[type="password"],
-input[type="email"],
 input[type="username"]{
-    display: block;
+
     width: 300px;
     height: 40px;
     padding: 20px;
@@ -81,7 +86,7 @@ input[type="username"]{
     border-radius: 2px;
     border: none;
     cursor: pointer;
-    display: block;
+
     margin: 35px 20px;
 
 }
@@ -129,7 +134,7 @@ label{
 
 }
 
-.link{
+.register-link{
     
     color:#383838;
     display:block;

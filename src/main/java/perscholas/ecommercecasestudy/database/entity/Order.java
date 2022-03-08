@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,12 +23,32 @@ public class Order {
     @Column(name = "user_id")
     private Integer userId;
 
-    @Column(name = "cart_id")
-    private Integer cartId;
+    @Column(name = "order_date")
+    private LocalDateTime date;
+
+    @Column(name="ship_address",columnDefinition = "TEXT")
+    private String shippingAddress;
+
+
+
+    @Column(name="customer_name")
+    private String customerName;
+
+    @Column(name="phone")
+    private String phoneNumber;
+
+    @Column(name="taxes")
+    private BigDecimal taxes;
+
+    @Column(name = "subtotal")
+    private BigDecimal subtotal;
+
+    @Column(name = "total")
+    private BigDecimal total;
 
     @ManyToMany
     @JoinTable(name = "order_product",
                joinColumns = @JoinColumn(name ="order_id"),
-                inverseJoinColumns = @JoinColumn(name = "product_id"))
-    private List<Product> productList = new ArrayList<Product>();
+                inverseJoinColumns = @JoinColumn(name = "cart_items_id"))
+    private List<CartItem> productList = new ArrayList<CartItem>();
 }

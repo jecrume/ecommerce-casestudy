@@ -4,8 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+
 import java.util.Objects;
 
 @Entity
@@ -18,14 +17,17 @@ public class CartItem {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "date")
-    private LocalDateTime date;
-
     @Column(name = "quantity")
     private Integer quantity;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
+    @JoinColumn(name="product_id")
     private Product product;
+
+    @ManyToOne
+    @JoinColumn(name="user_id")
+    private User user;
+
 
     @Override
     public boolean equals(Object o) {

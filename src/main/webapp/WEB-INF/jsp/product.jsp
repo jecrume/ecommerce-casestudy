@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <%@page import="java.math.BigDecimal" %>
 
 <jsp:include page="header.jsp" />
@@ -8,10 +9,28 @@
 <section class="product-details">
     <div class="image-slider" style="background-image: url('${currentProduct.mainImgUrl}');">
         <div class="product-images">
-            <img src="${currentProduct.mainImgUrl}" class="active" alt="">
-            <c:forEach items="${imgUrlList}" var="img">
-            <img src="${img}" class="active" alt="">
 
+            <c:choose>
+                <c:when test="${fn:contains(src,'youtube')}">
+                    <iframe src="${img}" class="active" width="420" height="315"  title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+                    </iframe>
+                </c:when>
+                <c:otherwise>
+                    <img src="${currentProduct.mainImgUrl}" class="active" alt="">
+                </c:otherwise>
+            </c:choose>
+            <c:forEach items="${imgUrlList}" var="img">
+                <c:choose>
+                     <c:when test="${fn:contains(img,'youtube')}">
+                         <iframe src="${img}" class="active" width="420" height="315"  title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+                         </iframe>
+                     </c:when>
+                     <c:otherwise>
+                        <img src="${img}" class="active" alt="">
+                     </c:otherwise>
+                 </c:choose>
             </c:forEach>
 
         </div>
@@ -28,19 +47,20 @@
 
         <div id="buttons">
 
-            <form action="/product/addToCart" method="post">
+            <form id="addToCart" action="/cart/addToCart" method="post">
 
                 <div id="pass-quantity" class="pass-quantity col-lg-3 col-md-4 col-sm-3">
                     <label for="pass-quantity" class="pass-quantity">Quantity</label>
-                    <input name= "quantity" class="form-control" type="number" value="1" min="1" max="${currentProduct.availableQty}">
+                    <input  name= "quantity" class="form-control" type="number" value="1" min="1" max="${currentProduct.availableQty}">
                 </div>
 
 
 
-                <input type="hidden" name="id" value=${currentProduct.id} />
-                <button type="submit" class="btn-cart-btn mt-2">Add To Cart</button>
+                <input  type="hidden" name="id" value=${currentProduct.id} />
+                <button type="submit" class="btn-cart-btn mt-2" id="buttonAddToCart">Add To Cart</button>
             </form>
             <button class="btn-wishlist-btn">Add To Wishlist</button>
+
         </div>
     </div>
 
@@ -87,4 +107,21 @@
 <script src="/pub/js/home.js"></script>
 <script src="/pub/js/product.js"></script>
 
+<%--<script>--%>
+<%--    function customAlert(msg,duration)--%>
+<%--    {--%>
+<%--        var styler = document.createElement("div");--%>
+<%--        styler.setAttribute("style","border: solid 5px Red;width:auto;height:auto;top:50%;left:40%;background-color:#444;color:Silver");--%>
+<%--        styler.innerHTML = "<h1>"+msg+"</h1>";--%>
+<%--        setTimeout(function()--%>
+<%--        {--%>
+<%--            styler.parentNode.removeChild(styler);--%>
+<%--        },duration);--%>
+<%--        document.body.appendChild(styler);--%>
+<%--    }--%>
+<%--    function caller()--%>
+<%--    {--%>
+<%--        customAlert("The Product was added to the cart.","2000");--%>
+<%--    }--%>
+<%--</script>--%>
 <jsp:include page="footer.jsp" />

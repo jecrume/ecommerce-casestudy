@@ -60,7 +60,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginProcessingUrl("/login/loginSecurityPost")
                 //.successHandler(successHandler)
                 //.failureHandler(failureHandler)
-                .defaultSuccessUrl("/user/userprofile",true)
+                .defaultSuccessUrl("/user/profile",true)
                 .and()
                 .logout()
                 // invalidating the session removes the JSESSION_ID cookie from the browser
@@ -72,7 +72,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutUrl("/login/logout")
 
                 // this is the URL the user will be redirected to after the have logged out
-                .logoutSuccessUrl("/login/logoutSuccess")
+                .logoutSuccessUrl("/login/login/logoutSuccess")
                 .and()
                 .rememberMe()
                 // this configuration is for remember me and is not required for the class

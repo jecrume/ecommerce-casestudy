@@ -17,6 +17,8 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+
+		<!-- Spring Boot		-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -78,7 +80,7 @@
 			<artifactId>standard</artifactId>
 			<version>1.1.2</version>
 		</dependency>
-
+		<!--		Utilities -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -97,6 +99,7 @@
 			<version>1.9.4</version>
 		</dependency>
 
+		<!--Testing-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>

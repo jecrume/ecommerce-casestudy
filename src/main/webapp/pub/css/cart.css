@@ -1,7 +1,10 @@
 @import "footer.css";
 @import "header.css";
 
-
+#productImg{
+    max-height:300px ;
+    max-width:300px;
+}
 .table>tbody>tr>td, .table>tfoot>tr>td{
     vertical-align: middle;
 }
