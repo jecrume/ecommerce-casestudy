@@ -1,7 +1,7 @@
 # GoGo Gadget E-Commerce Website
 
 This project was created for the case study (final project) for the Per Scholas Full Stack Java Development program. 
-The [case study requirements](14-Weeks Java Developer - Case Study.pdf) can be found at this location.
+The case study requirements can be found at [this](https://github.com/jecrume/ecommerce-casestudy/blob/master/14-Weeks%20Java%20Developer%20-%20Case%20Study.pdf) location.
 
 The project is a fictional e-commerce website that hosts different, unique, premium tech products
 from around the internet. Users can browse the website by category or product, login, logout, add items to their cart, place an order, add items
