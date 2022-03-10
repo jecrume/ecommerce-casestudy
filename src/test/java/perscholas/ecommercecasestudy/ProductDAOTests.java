@@ -11,8 +11,7 @@ import perscholas.ecommercecasestudy.database.entity.Product;
 import java.math.BigDecimal;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -59,11 +58,12 @@ public class ProductDAOTests {
         Product product = productDAO.findProductByName("Test1 Product Name");
         product.setAvailableQty(0);
         productDAO.save(product);
-        assertTrue(product.getAvailableQty() == 0);
+        product = productDAO.findProductByName("Test1 Product Name");
+        assertEquals(0, product.getAvailableQty()) ;
     }
 
     @Test
-    @Order(3)
+    @Order(4)
     public void deleteProductTest(){
         Product product = productDAO.findProductByName("Test1 Product Name");
         productDAO.delete(product);
