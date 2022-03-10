@@ -10,8 +10,12 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 import perscholas.ecommercecasestudy.database.dao.UserDAO;
+import perscholas.ecommercecasestudy.database.entity.Product;
 import perscholas.ecommercecasestudy.database.entity.User;
 
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @DataJpaTest
@@ -57,6 +61,22 @@ public class UserDAOTests {
         user.setEmail("Test3 Email");
         userDAO.save(user);
         assertTrue(user.getEmail().equals("Test3 Email"));
+    }
+
+    @Test
+    @Order(4)
+    public void deleteUserTest(){
+        User user = userDAO.findByUsername("Test1 User Name");
+        userDAO.delete(user);
+        Optional<User> optionalProduct = Optional.ofNullable(userDAO.findById(user.getId()));
+
+        User tempUser = null;
+
+        if(optionalProduct.isPresent()){
+            tempUser = optionalProduct.get();
+        }
+
+        assertNull(tempUser);
     }
 
 }

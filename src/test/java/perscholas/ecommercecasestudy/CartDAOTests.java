@@ -1,5 +1,6 @@
 package perscholas.ecommercecasestudy;
 
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowire;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,7 @@ import perscholas.ecommercecasestudy.database.entity.User;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace= AutoConfigureTestDatabase.Replace.NONE)
@@ -29,6 +29,7 @@ public class CartDAOTests {
     private TestEntityManager entityManager;
 
     @Test
+    @Order(1)
     public void testAddToCartItem(){
         Product product = entityManager.find(Product.class,196);
         User user = entityManager.find(User.class,2);
@@ -45,6 +46,7 @@ public class CartDAOTests {
     }
 
     @Test
+    @Order(2)
     public void testGetCartItemsByCustomer(){
         User user = new User();
         user.setId(2);
@@ -52,5 +54,41 @@ public class CartDAOTests {
         List<CartItem> cartItems = cartDao.findByUser(user);
 
         assertEquals(1,cartItems.size());
+    }
+
+    @Test
+    @Order(3)
+    public void updateCartItemTest(){
+        User user = new User();
+        user.setId(3);
+
+        List<CartItem> cartItems = cartDao.findByUser(user);
+
+        cartDao.updateQuantity(9,cartItems.get(0).getProduct().getId(),user.getId());
+
+        Integer newQuantity = cartItems.get(0).getQuantity();
+
+        assertEquals(9,cartItems.get(0).getQuantity());
+    }
+
+    @Test
+    @Order(4)
+    public void deleteCartItemTest(){
+        User user = new User();
+
+        user.setId(3);
+
+        List<CartItem> cartItems = cartDao.findByUser(user);
+
+        Integer deletedProductId = cartItems.get(0).getProduct().getId();
+
+        cartDao.delete(deletedProductId, user.getId());
+
+        Product deletedProduct = new Product();
+        deletedProduct.setId(deletedProductId);
+        CartItem deletedItem = cartDao.findByUserAndProduct(user,deletedProduct);
+
+        assertNull(deletedItem);
+
     }
 }
