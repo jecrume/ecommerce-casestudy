@@ -14,26 +14,31 @@
 
         <div class="text-center">
             <h1>Order Form</h1>
+            <div>
+                <c:forEach items="${errorMessages}" var="message">
+                    <span style="color:red">${message}</span><br>
+                </c:forEach>
+            </div>
         </div>
         <div class="well ">
             <div class="row">
                 <div class="col-lg-10 col-lg-10 col-lg-10">
                     <address>
                         <label for="name">Full Name: </label>
-                        <input id="name" name= "name" type="text" placeholder="Enter Name">
+                        <input id="name" name= "name" type="text" value="${formBeanKey.name}" placeholder="Enter Name">
                         <br>
                         <label for="streetAddress">Street Address:</label>
-                        <input id="streetAddress" name="streetAddress" type="text" placeholder="enter street address">
+                        <input id="streetAddress" name="streetAddress" type="text" value="${formBeanKey.streetAddress}" placeholder="enter street address">
                         <br>
                         <label for="city">City: </label>
-                        <input id="city" name="city" type="text" placeholder="enter city">
+                        <input id="city" name="city" type="text" value="${formBeanKey.city}" placeholder="enter city">
                         <label for="state">State: </label>
-                        <input id="state" name ="state" type="text" placeholder="enter state">
-                        <label for="zip">Zipcode: </label>
-                        <input id="zip" name ="zip" type="text" placeholder="enter zipcode">
+                        <input id="state" name ="state" type="text" value="${formBeanKey.state}" placeholder="enter state">
+                        <label for="zipcode">Zipcode: </label>
+                        <input id="zipcode" name ="zipcode" type="text" value="${formBeanKey.zipcode}" placeholder="enter zipcode">
                         <br>
                         <label for="phone">Phone: </label>
-                        <input id="phone" name ="phone" type="text" placeholder="enter phone number">
+                        <input id="phone" name ="phone" type="text" value="${formBeanKey.phone}" placeholder="enter phone number">
                     </address>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6 text-right">
@@ -57,7 +62,7 @@
                     <tbody>
                     <c:forEach items="${cartItems}" var="cartItem">
                     <tr>
-                        <td class="col-md-5"><img id="productImg" src="${cartItem.product.mainImgUrl}" class = "img-fluid" alt="Responsive image"><h4><em>${cartItem.product.productName}</em></h4></td>
+                        <td class="col-sm-5"><img id="productImg" src="${cartItem.product.mainImgUrl}" class = "img-fluid" alt="Responsive image"><h4><em>${cartItem.product.productName}</em></h4></td>
                         <td class="col-lg-10" style="text-align: center"> ${cartItem.quantity} </td>
                         <td class="col-lg-1 text-center">$${cartItem.product.price.setScale(2,BigDecimal.ROUND_HALF_UP)}</td>
                         <td class="col-lg-1 text-center">$${cartItem.quantity*cartItem.product.price.setScale(2,BigDecimal.ROUND_HALF_UP)}</td>

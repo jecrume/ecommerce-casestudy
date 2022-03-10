@@ -14,7 +14,10 @@
                 <a onclick="location.href='/product/${product.id}'">
                 <img src="${product.mainImgUrl}" class="product-thumb" alt="">
                 </a>
-                <button class="card-btn">Add To Wish List</button>
+                <form action="/addToWishList" method="post">
+                    <input type="hidden" name="productId" value="${currentProduct.id}" >
+                    <button type="submit" class="btn-wishlist-btn">Add To Wishlist</button>
+                </form>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">${product.productName}</h2>

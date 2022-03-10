@@ -30,9 +30,10 @@
     background-color: #090909 !important;
 }
 
-.img-fluid{
+#productImg{
     width:100px;
     height:100px;
+
 }
 
 .headline{
@@ -42,4 +43,5 @@
     justify-content: center;
     align-content: center;
 }
+
 

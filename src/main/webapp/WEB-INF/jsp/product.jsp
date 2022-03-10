@@ -10,27 +10,27 @@
     <div class="image-slider" style="background-image: url('${currentProduct.mainImgUrl}');">
         <div class="product-images">
 
-            <c:choose>
-                <c:when test="${fn:contains(src,'youtube')}">
-                    <iframe src="${img}" class="active" width="420" height="315"  title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+<%--            <c:choose>--%>
+<%--                <c:when test="${fn:contains(src,'youtube')}">--%>
+<%--                    <iframe src="${img}" class="active" width="420" height="315"  title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>--%>
 
-                    </iframe>
-                </c:when>
-                <c:otherwise>
+<%--                    </iframe>--%>
+<%--                </c:when>--%>
+<%--                <c:otherwise>--%>
                     <img src="${currentProduct.mainImgUrl}" class="active" alt="">
-                </c:otherwise>
-            </c:choose>
+<%--                </c:otherwise>--%>
+<%--            </c:choose>--%>
             <c:forEach items="${imgUrlList}" var="img">
-                <c:choose>
-                     <c:when test="${fn:contains(img,'youtube')}">
-                         <iframe src="${img}" class="active" width="420" height="315"  title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+<%--                <c:choose>--%>
+<%--                     <c:when test="${fn:contains(img,'youtube')}">--%>
+<%--                         <iframe src="${img}" class="active" width="100" height="80"  title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>--%>
 
-                         </iframe>
-                     </c:when>
-                     <c:otherwise>
+<%--                         </iframe>--%>
+<%--                     </c:when>--%>
+<%--                     <c:otherwise>--%>
                         <img src="${img}" class="active" alt="">
-                     </c:otherwise>
-                 </c:choose>
+<%--                     </c:otherwise>--%>
+<%--                 </c:choose>--%>
             </c:forEach>
 
         </div>
@@ -59,8 +59,11 @@
                 <input  type="hidden" name="id" value=${currentProduct.id} />
                 <button type="submit" class="btn-cart-btn mt-2" id="buttonAddToCart">Add To Cart</button>
             </form>
-            <button class="btn-wishlist-btn">Add To Wishlist</button>
 
+        <form action="/addToWishList" method="post">
+            <input type="hidden" name="productId" value="${currentProduct.id}" >
+            <button type="submit" class="btn-wishlist-btn">Add To Wishlist</button>
+        </form>
         </div>
     </div>
 
@@ -85,7 +88,10 @@
                     <a onclick="location.href='/product/${product.id}'">
                         <img src="${product.mainImgUrl}" class="product-thumb" alt="">
                     </a>
-                    <button class="card-btn">Add To Wish List</button>
+                    <form action="/addToWishList" method="post">
+                    <button type="submit" class="card-btn">Add To Wish List</button>
+                        <input type="hidden" name="productId" value="${product.id}" >
+                    </form>
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">${product.productName}</h2>

@@ -1,6 +1,13 @@
 @import "home.css";
 
+.product-card:hover .card-btn{
+    opacity:1;
 
+}
+
+.card-btn:hover{
+    background: #d1d1d1;
+}
 .search-results{
     width:100%;
     padding: 60px 0;

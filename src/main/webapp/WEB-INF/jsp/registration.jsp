@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="header.jsp" />
-<link rel="stylesheet" href="/pub/css/login.css">
+<link rel="stylesheet" href="/pub/css/register.css">
 
 
 <div class="container">

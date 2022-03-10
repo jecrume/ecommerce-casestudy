@@ -3,7 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="header.jsp" />
 
-
+<link rel="stylesheet" href="/pub/css/orderSuccess.css">
 
 <div class="headline">
 <h1>Order Placed Successfully.</h1>
@@ -45,7 +45,7 @@
                     <tbody>
                     <c:forEach items="${cartItems}" var="cartItem">
                         <tr>
-                            <td class="col-md-9"><img src="${cartItem.product.mainImgUrl}" class = "img-fluid" alt="Responsive image"><h4><em>${cartItem.product.productName}</em></h4></td>
+                            <td class="col-md-9"><img  src="${cartItem.product.mainImgUrl}" class = "img-responsive" alt="Responsive image"><h4><em>${cartItem.product.productName}</em></h4></td>
                             <td class="col-md-1" style="text-align: center"> ${cartItem.quantity} </td>
                             <td class="col-md-1 text-center">$${cartItem.product.price.setScale(2,BigDecimal.ROUND_HALF_UP)}</td>
                             <td class="col-md-1 text-center">$${cartItem.quantity*cartItem.product.price.setScale(2,BigDecimal.ROUND_HALF_UP)}</td>
