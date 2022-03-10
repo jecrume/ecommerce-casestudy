@@ -15,9 +15,9 @@ this project is not currently deployed.
 
 Examples of user stories for this website are: 
 
--As an e-commerce website customer, I want to search for products in a search bar so that I cna find products easily.
--As an e-commerce website customer, I want to save a list of products that I like so that I can quickly find and purchase them in the future.
--As an e-commerce website customer, I want to easily place an order so that I can get unique and fun products I like.
+*As an e-commerce website customer, I want to search for products in a search bar so that I cna find products easily.
+*As an e-commerce website customer, I want to save a list of products that I like so that I can quickly find and purchase them in the future.
+*As an e-commerce website customer, I want to easily place an order so that I can get unique and fun products I like.
 
 ## Built With
 
